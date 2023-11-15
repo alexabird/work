@@ -1,0 +1,150 @@
+Issue key,Issue id,Summary,Issue Type,Description,Status,Labels,Labels,Labels,Labels,Labels,Custom field (ISRI Completion Criteria),Created
+ISR-15697,75607,Starred space visuals should render appropriately after a star/unstar,Improvement,"# Fix spacing in tables so that stars and titles are always aligned
+ # When an item is starred within a space it becomes unselected and the current visuals are lost. The item should remain selected after starring the item, so that the visuals remain the same.
+ # When in the Starred space view, removing a star from the item does not remove it from the space. When an item is unstarred in the Starred space, it should be removed from the space",Backlog,CxS&Q-7,NotWarranty,Ready,,,"Unstarred items should not be displayed in the starred space
+
+1.Fix spacing in tables so that stars and titles are always aligned
+2.When an item is starred within a space it becomes unselected and the current visuals are lost. The item should remain selected after starring the item, so that the visuals remain the same.
+3.When in the Starred space view, removing a star from the item does not remove it from the space. When an item is unstarred in the Starred space, it should be removed from the space",14/Nov/23 6:23 AM
+ISR-15627,75451,Create corporate note notification,Improvement,"As per ISR-12734, Notes visibility is currently poor, with users having to manually click through to the Notes tab to determine if Notes exist per item.
+This ticket is to include the addition of a Subscribe option against a Product, which would enable notification of changes of corporate note changes as visible to that user. 
+*User story*
+As an End User, I need to be informed of changes to subscribed ISR Products Corporate Notes so that I can consider the impact of the change on my work activities.
+*Acceptance criteria*
+Given the user has selected an ISR Product, when the user subscribes to be notified of changes to Corporate Notes, then the system notifies the user when a new Corporate Note is added, deleted or edited in accordance with the users notification preferences.
+When the user enables or disables their Corporate Note notification preferences, then the system uses the new preferences to notify the user of changes to corporate notes:
+•	an email notification is sent if email notifications are  enabled and not sent if disabled
+•	an in app notification is sent if in app notifications are enabled and not sent if disabled
+•	both a email and in app notification is sent if both email and in app notifications are enabled
+•	no notification is sent if both email and in app notifications are disabled
+
+The user will be able to unsubscribe from an ISR product, which will stop all corporate note notifications against that product.
+
+The Corporate note notification will be generic - ""A corporate note has been added/updated/deleted on a subscribed product > Link to View""
+
+The ""Notes updated"" notification setting will be renamed to ""Shared notes""
+
+
+
+ ",Backlog,CxS&Q-7,NotWarranty,,,,"To be delivered with ISR-15626
+1. Given the user has selected an ISR Product, when the user subscribes to be notified of changes to Corporate Notes, then the system notifies the user when a new Corporate Note is added, deleted or edited in accordance with the users notification preferences.
+2. When the user enables or disables their Corporate Note notification preferences, then the system uses the new preferences to notify the user of changes to corporate notes.
+3. The user will be able to unsubscribe from an ISR product, which will stop all corporate note notifications against that product.
+4. The Corporate note notification will be generic - ""A corporate note has been added/updated/deleted on a subscribed product > Link to View""
+5. The ""Notes updated"" notification setting will be renamed to ""Shared notes""",03/Nov/23 6:40 AM
+ISR-15626,75450,Create subscribe interaction for metacards,Improvement,"As per ISR-12734, Notes visibility is currently poor, with users having to manually click through to the Notes tab to determine if Notes exist per item.
+This ticket is to include the addition of a Subscribe option against a Product, which would enable notification of changes of corporate note changes as visible to that user. 
+*User story*
+As an End User, I need to be informed of changes to subscribed ISR Products Corporate Notes so that I can consider the impact of the change on my work activities.
+*Acceptance criteria*
+Given the user has selected an ISR Product, when the user subscribes to be notified of changes to Corporate Notes, then the system notifies the user when a new Corporate Note is added, deleted or edited in accordance with the users notification preferences.
+When the user enables or disables their Corporate Note notification preferences, then the system uses the new preferences to notify the user of changes to corporate notes:
+•	an email notification is sent if email notifications are  enabled and not sent if disabled
+•	an in app notification is sent if in app notifications are enabled and not sent if disabled
+•	both a email and in app notification is sent if both email and in app notifications are enabled
+•	no notification is sent if both email and in app notifications are disabled
+
+The user will be able to unsubscribe from an ISR product, which will stop all corporate note notifications against that product.
+
+The Corporate note notification will be generic - ""A corporate note has been added/updated/deleted on a subscribed product > Link to View""
+
+The ""Notes updated"" notification setting will be renamed to ""Shared notes""
+
+
+
+ ",Backlog,CxS&Q-7,Discuss,NotWarranty,Ready,Spencer,"To be delivered with ISR-15627
+1. Given the user has selected an ISR Product, when the user subscribes to be notified of changes to Corporate Notes, then the system notifies the user when a new Corporate Note is added, deleted or edited in accordance with the users notification preferences.
+2. When the user enables or disables their Corporate Note notification preferences, then the system uses the new preferences to notify the user of changes to corporate notes.
+3. The user will be able to unsubscribe from an ISR product, which will stop all corporate note notifications against that product.
+4. The Corporate note notification will be generic - ""A corporate note has been added/updated/deleted on a subscribed product > Link to View""
+5. The ""Notes updated"" notification setting will be renamed to ""Shared notes""",03/Nov/23 6:39 AM
+ISR-15611,75435,Buffer input should not loose value after applying drawn geo,Improvement,"Buffer changes should not be lost while in draw mode. Currently if a user is in draw mode and changes the buffer, the buffer will not be saved when the user ""applies"" the geo edits. We should either disable the buffer form value while the user is in edit mode OR ensure that the ""apply"" picks up any changes to the buffer form value.
+
+*User story*
+As a user, I would like to modify a buffer while drawing a geo on the maps
+*Actual result*
+Buffer changes are applied to the previous geo rather than the drawn geo, causing the buffer adjustment to be lost on ""apply""
+*Expected result*
+Buffer changes are applied to the drawn geo rather than the previous geo and saved when applying changes to the map.",Backlog,CxS&Q-7,NotWarranty,,,,"The buffer input field change is not lost after ""Applying"" a drawing.",02/Nov/23 7:03 AM
+ISR-15610,75434,Warn users about unsaved Search Area changes,Improvement,"Users should be warned when attempting to navigate away from a search area when they have unsaved changes. Currently users can view a search area and make changes, but if they navigate away from the search page before clicking ""Save"", all the changes will be lost. Instead a dialogue should appear stating something like ""You have unsaved changes. Are you sure you want to leave? All changes will be lost"" and have buttons to either ""Cancel"" or ""Continue""
+*
+user story: *
+As a USER, I would like to be warned when I attempt to navigate away from a search area I have modified that I have not saved and be given the option to remain on the saved search page.
+
+*Actual outcome:*
+
+When a user navigates away from an area, they lose all their changes
+
+*Expected outcome:
+*
+User is given an option to remain on the search area page so that they have the ability to save their changes before navigating somewhere else in the system.",Backlog,CxS&Q-7,NotWarranty,,,,Users are warned with a dialog when navigating away from a search area with unsaved changes that there changes will be lost if they choose to continue,02/Nov/23 6:49 AM
+ISR-15609,75433,Restricting ability to edit and delete other user's posts/replies in topics.,Improvement,"The intent of topics was to be like Confluence rather than chat-like; because of that, there could be various improvements to current terminology/UX used in topics:
+ * Rename ""description"" to something more indicative that it is the main content
+ * Make ""description"" be in the forefront of the topic
+ * Require a ""description"" or display something like ""This topic does not have any content yet""
+ * Rename ""post"" to ""comment""
+ * Disallow edit/delete of others comments and replies
+
+ ",Backlog,CxS&Q-7,NotWarranty,,,,"1. ""Description"" is renamed to something more indicative that it is the main content
+2. ""Description"" is in the forefront of the topic, rather than the comments/replies
+3. ""Description"" should be required
+4. Rename ""post"" to ""comment""
+4. Users cannot edit/delete other users' comments and replies",02/Nov/23 6:41 AM
+ISR-15608,75432,Create a timestamp service endpoint,Improvement,"The timestamp meservice will query timestamp metacards to determine the last time a user viewed the referenceID.
+
+The time stamp service will need 3 functions:
+ # getTimeStamp
+ # updateTimestamp
+ # getNotesFromTimestamp
+
+ ",Backlog,CxS&Q-7,NotWarranty,,,,"To be delivered with ISR-15167 and ISR-15607
+
+Small numerical indicator next to a Topic in a Space showing how many replies exist in total.
+
+Bonus, if possible, if that indicator also flags there are new replies unread by the user.",02/Nov/23 6:37 AM
+ISR-15607,75431,Create a timestamp metacard type,Improvement,"The timestamp metacard will be used by the timestamp service to determine the last time a user viewed the referenceID.
+
+The time stamp metacard will need 3 attributes:
+ # referenceID
+ # timestamp
+ # userId
+
+ We need to make sure these attributes are hidden (not searchable) in the UI",Backlog,CxS&Q-7,NotWarranty,,,,"To be delivered with ISR-15167 and ISR-15608
+
+Small numerical indicator next to a Topic in a Space showing how many replies exist in total.
+
+Bonus, if possible, if that indicator also flags there are new replies unread by the user.",02/Nov/23 6:33 AM
+ISR-15436,75142, Add unowned item to space - Implementation,Improvement,"If formal products, unowned upload items, or unowned  entity/events are selected, the number of each will be listed and the user will be told that these items will be added as-is. If 1 of each item is selected the message will be: ""1 formal product(s), 1 uploaded item(s), 1 entity/event(s) will be added as is"". 
+
+When a user attempts to add an unowned search, area, or layout; they will have to duplicate and assign a access level to those items.  If 1 of each is selected the message will be: ""1 search, 1 area, 1 layout"" and they will have the option to duplicate or skip
+
+A warning/descriptive message will be given depending on the user's selections. Please refer to design page and mockups for correct verbiage and formatting 
+https://jira.nciteglobal.com.au/confluence/display/ISR/%5BISR-14008%5D+ISR+Add+unowned+item+to+space
+",Backlog,CxS&Q-7,NotWarranty,,,,"1. When a user adds 1 or more unowned items that are  searches, spaces, or areas to a space, they are give a message explaining that unowned items added to a space may not be visible to space members and be presented with the options:
+- skip adding unowned items
+- duplicate and add unowned items
+2. When a user adds 1 or more unowned items that are formal products, upload items, or entity/events to a space, they will be given a message explaining that those items will be added as-is
+3. If a user is only adding owned items to a space, they do not see the above message and options .",18/Oct/23 10:17 AM
+ISR-15358,74969,"Allow admin to configure attributes that should always be exported (classification), regardless of user's config",Improvement,"As per ISR-11004, ISR-13352 and ISR-13351, results metacard exporting has been improved so that output files only include attributes as selected by the user in the Inspector visual with the ""Manage Attributes"" button. However, there are some attributes that should always be exported for security reasons. The admins of the system should be able to specify which attributes must always be included in the export. By default this will include title, classification and releasabilty. These required attributed will always appear as “Active” in the inspector’s “manage attributes” modal. The user will be able to drag the attributes to change the order, however, the checkbox selection will be disable so that the user cannot move the attribute to the “hidden” column. A tooltip will be provided to the user so that they know why they are unable to move the attribute to hidden.
+ ",Backlog,CxS&Q-7,NotWarranty,Ready,,,"Admins will be able to configure a list of required export attributes. The attributes specified in this configuration will always be included in exports, even if the user has not specified the attribute as ""active"" in their inspector view.",11/Oct/23 5:33 AM
+ISR-15296,74901,"Allow end user to specify promote/discoverable during ""Edit Space""",Improvement,"When editinga space, a user (with the correct permissions) should be given the option to set the discoverability and/or promote the space. This is possible now by going to the space's ""manage access"" modal.",Backlog,CxS&Q-7,NotWarranty,,,,"- Users will be able to set a space as “Discoverable” in the edit space modal.
+- If the user has selected “Discoverable” and there is no description, the user will be given a error message and not be able to create the space until a description is added.
+- If the user is a collaboration manager, they will also have the ability to set the space to “Promoted” from the create modal.
+- If “Promoted” is selected, the user will be prompted with a confirmation message which warns them the action cannot be undone.
+- In the confirmation modal, if they select ""promote"", the space will be updatedand if they click cancel, they will be brought back to the edit dialogue to make any necessary changes.",29/Sep/23 6:31 AM
+ISR-15239,74714,DDF Karaf allows user with access to machine to login without entering a password,Improvement,"When signing into the karaf console in ddf when the prompt for the password appears if the user simply hits enter without entering any text they will be granted access to the karaf console.
+
+*Updates in Grooming meeting 20/09/23*:
+
+Logging in without authentication loses some auditability, however the Karaf console is only accessible by _priv users on the DDF Servers themselves. It is still possible to trace any changes to the karaf bundle configuration and logging levels, by tracing who was logged into the terminal when the change was made.
+
+ Need to investigate when this started to occur, is it a warranty issue or not?",Backlog,CxS&Q-7,NotWarranty,,,,karaf console does not allow a user access if they enter an empty password,19/Sep/23 6:20 PM
+ISR-15167,74485,Topics - New/number of reply indication,Improvement,"*+User Story+*
+
+I have created multiple topics in a Space and am awaiting replies but there is no visual way to tell when looking at them all which if any have had responses. I want to be able to see this visually without having to repeatedly click into each.
+
++*Description*+
+
+Add indicator(s) to Topics to indicate a) new replies have been added and/or b) number of replies in that Topic.",Backlog,CxS&Q-7,NotWarranty,,,,"To be delivered with ISR-15607 and ISR-15608
+Small numerical indicator next to a Topic in a Space showing how many replies exist in total.
+Bonus, if possible, if that indicator also flags there are new replies unread by the user.",12/Sep/23 3:09 PM
