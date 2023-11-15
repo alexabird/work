@@ -1,6 +1,1 @@
-steps taken:
-Shared a search "test update area" with you
-Shared an area "test update area" with you and tst_aus
-logged in as tst_aus
-updated the area
-logged back in as myself to look at the search, and permissions look normal
+(Labels = "CxS&Q" OR labels = "CxS&Q-2" OR labels = "CxS&Q-3" OR labels = "CxS&Q-4" OR labels = "CxS&Q-5" OR labels = "CxS&Q-6") AND fixVersion =2005.0.0  ORDER BY Rank ASC
