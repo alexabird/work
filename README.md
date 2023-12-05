@@ -1,1 +1,1 @@
-curl -X POST -k "https://localhost:8993/services/replication/sync/trigger" -d '{"lastReplicationEvent": 0, "eventId": "101", "targetNodeId": "heavy_node_one"}'
+When an item is starred within a space it becomes unselected and the current visuals are lost. The item should remain selected after starring the item, so that the visuals remain the same.
