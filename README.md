@@ -1,8 +1,1 @@
-- name: Remove karaf properties file
-  command: rm  "{{ DDF_ETC }}/user.properties"
-  when:
-    - DDF_LDAP_ENABLED or DDF_USE_KEYCLOAK
-  notify:
-    - restart ddf
-  tags:
-    - ddf_reapply_config
+curl -X POST -k "https://localhost:8993/services/replication/sync/trigger" -d '{"lastReplicationEvent": 0, "eventId": "101", "targetNodeId": "heavy_node_one"}'
