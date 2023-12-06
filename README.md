@@ -1,3 +1,18 @@
+* add new components to the landing page allowing users to see what the various data sources have in them and make them clickable links that navigate them to a search.  Eg:
+    * Source EIF-123
+        * Reports: 233
+        * Images: 56
+        * etc
+    * OR Make it time based..
+    * Last 24 hours
+        * reports: xx
+        * images: yy
+    * Last week
+    * etc
+
+
+
+
 User Story: <Title>
 Narrative:
 As an <Actor>
