@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#-------------- README! --------------------
+# This script requires you setting up the following vars:
+# $ISRI_ROOT: the root of your AUS repo, example: export ISRI_ROOT="/projects/aus"
+# $CONFIG_ROOT: the root of your config dir, example: export CONFIG_ROOT="/projects/configs"
+# Feel free to set these up in your ~/.bash_profile
+ISRI_ROOT="/opt/aus"
+
+#--------------FIND ISRI VERSION------------
+echo "Finding ISRI version..."
+ISRI_VER=$(mvn -f $ISRI_ROOT/pom.xml org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
+echo "Found project version: $ISRI_VER..."
+
+#------------------CLEANUP------------------
+echo "Shutting down docker containers..."
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/solrcloud/docker-compose.yml down
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/postgres/src/main/docker/postgres-compose.yml down
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/keycloak/src/main/docker/keycloak-compose.yml down
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/geoserver/docker-compose.yml down
+docker system prune -f
+sh /opt/isri-$ISRI_VER/bin/stop
+rm -rf /opt/isri-$ISRI_VER
+
+#----------------UNZIP DISTRO---------------
+echo "Checking if distribution is already unzipped..."
+unzip /opt/aus/distribution/isri/target/isri-$ISRI_VER.zip -d /opt/
+
+
+#------------------STARTUP------------------
+# SOLR
+echo "Starting up solr..."
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/solrcloud/docker-compose.yml up -d
+
+# POSTGRES
+echo "Building postgres image..."
+mvn -f $ISRI_ROOT/distribution/sdk/docker/postgres/pom.xml clean install -Pdocker -q
+echo  "Starting up postgres..."
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/postgres/src/main/docker/postgres-compose.yml up -d
+
+# KEYCLOAK
+echo "Building keycloak image..."
+mvn -f $ISRI_ROOT/distribution/sdk/docker/keycloak/pom.xml clean -Pdocker-localhost install -q
+echo  "Starting up keycloak..."
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/keycloak/src/main/docker/keycloak-compose.yml up -d
+echo "Copying keycloak files to ISRI..."
+cp $ISRI_ROOT/distribution/sdk/docker/keycloak/src/main/resources/com.connexta.isri.sharing.keycloak.KeycloakAuthorizationImpl-keycloak1.cfg /opt//isri-$ISRI_VER/etc/
+cp $ISRI_ROOT/distribution/sdk/docker/keycloak/src/main/resources/org.codice.ddf.security.handler.api.OidcHandlerConfiguration.config /opt//isri-$ISRI_VER/etc/
+cp $ISRI_ROOT/distribution/sdk/docker/keycloak/src/main/resources/web-context-policy-config.properties /opt//isri-$ISRI_VER/etc/
+
+# GEOSERVER
+echo "Building geoserver image..."
+mvn -f $ISRI_ROOT/distribution/sdk/docker/geoserver/pom.xml clean -Pdocker install -q
+echo "Starting up geoserver..."
+docker-compose -f $ISRI_ROOT/distribution/sdk/docker/geoserver/docker-compose.yml up -d
+
+
+# ISRI- bring us to this dir, and run ISRI
+sh /opt/isri-$ISRI_VER/bin/karaf
