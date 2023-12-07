@@ -34,4 +34,5 @@ Scenario …:
 This information is provided outside the narrative and acceptance criteria for <purpose of providing the additional information>.
 
 <Additional Information>]
+![image](https://github.com/alexabird/work/assets/14789712/f8fc87f9-709b-4b1b-ba6c-ff85aa0e426a)
 ![Uploading image.png…]()
